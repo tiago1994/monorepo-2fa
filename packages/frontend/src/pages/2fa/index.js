@@ -11,6 +11,15 @@ export default (props) => {
           }
         />
         <InputDefault placeholder={"Digite o código..."} onChange={(e) => props.code(e.target.value)} />
+
+        {props.error&&(
+          <ErrorMessage>Código inválido.</ErrorMessage>
+        )}
+        
+        {props.required&&(
+          <ErrorMessage>Preencha o código.</ErrorMessage>
+        )}
+
         <ButtonDefault onClick={() => props.action()}>Validar</ButtonDefault>
       </CardLogin>
     </PageContent>
@@ -57,4 +66,9 @@ const ButtonDefault = styled.button`
   width: 120px;
   background-color: #4a2564;
   color: #FFF;
+`;
+
+const ErrorMessage = styled.div`
+  font-size: 12px;
+  color: red;
 `;

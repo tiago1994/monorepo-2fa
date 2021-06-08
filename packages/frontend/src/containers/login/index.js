@@ -24,14 +24,13 @@ export default (props) => {
     const loginResponse = await login(user);
     if (loginResponse.data.email) {
       setData({ ...data, error: false, required: false });
-      localStorage.setItem("user", {
+      localStorage.setItem("USER", JSON.stringify({
         email: loginResponse.data.email,
-        name: loginResponse.data.name,
-        jwt: loginResponse.data.jwt,
-      });
+        name: loginResponse.data.name
+      }));
+      localStorage.setItem('TOKEN_KEY', loginResponse.data.jwt)
       props.history.push("/2fa");
     } else {
-      console.log("nao foi");
       setData({ ...data, error: true, required: false });
     }
   };

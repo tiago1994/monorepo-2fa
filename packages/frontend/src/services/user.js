@@ -1,5 +1,5 @@
-import axios from 'axios';
+import api from './api';
 
 export const login = (user) => {
-  return axios.post("http://localhost:8000/login", user);
+  return api.post("http://localhost:8000/login", user);
 };
