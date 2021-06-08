@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import ButtonDefault from "../../components/buttonDefault";
+import ErrorMessage from "../../components/errorMessage";
+import InputDefault from "../../components/inputDefault";
 
 export default (props) => {
   return (
@@ -10,24 +13,24 @@ export default (props) => {
             "https://seeklogo.com/images/G/google-authenticator-logo-2DDB376595-seeklogo.com.png"
           }
         />
-        <InputDefault placeholder={"Digite o código..."} onChange={(e) => props.code(e.target.value)} />
+        <InputDefault
+          type={"text"}
+          placeholder={"Digite o código..."}
+          action={(e) => props.code(e)}
+        />
 
-        {props.error&&(
-          <ErrorMessage>Código inválido.</ErrorMessage>
-        )}
-        
-        {props.required&&(
-          <ErrorMessage>Preencha o código.</ErrorMessage>
-        )}
+        {props.error && <ErrorMessage value={"Código inválido."} />}
 
-        <ButtonDefault onClick={() => props.action()}>Validar</ButtonDefault>
+        {props.required && <ErrorMessage value={"Preencha o código."} />}
+
+        <ButtonDefault action={() => props.action()} value={"Validar"} />
       </CardLogin>
     </PageContent>
   );
 };
 
 const PageContent = styled.div`
-  background-image: linear-gradient(to right top, #4a2564 , #d45215);
+  background-image: linear-gradient(to right top, #4a2564, #d45215);
   height: 100%;
   display: flex;
   justify-content: center;
@@ -45,30 +48,6 @@ const CardLogin = styled.div`
 `;
 
 const Logo = styled.img`
-    width: 150px;
-    margin-bottom: 10px;
-`
-
-const InputDefault = styled.input`
-  width: 100%;
-  font-size: 14px;
-  margin: 5px 0px;
-  padding: 10px;
-`;
-
-const ButtonDefault = styled.button`
-  padding: 0px 20px;
-  margin: 5px 0px;
-  height: 35px;
-  border-radius: 0px;
-  box-shadow: initial;
-  border: initial;
-  width: 120px;
-  background-color: #4a2564;
-  color: #FFF;
-`;
-
-const ErrorMessage = styled.div`
-  font-size: 12px;
-  color: red;
+  width: 130px;
+  margin-bottom: 20px;
 `;

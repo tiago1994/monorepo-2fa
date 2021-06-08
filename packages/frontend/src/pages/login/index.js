@@ -1,27 +1,40 @@
 import React from "react";
 import styled from "styled-components";
+import ButtonDefault from "../../components/buttonDefault";
+import ErrorMessage from "../../components/errorMessage";
+import InputDefault from "../../components/inputDefault";
+import Logo from "../../components/logo";
 
 export default (props) => {
   return (
     <PageContent>
       <CardLogin>
         <Logo
+          width={'180px'}
           src={
             "https://uploads-ssl.webflow.com/5eebed4f86986c7148161d11/5fca413b6b8a410e06f2297a_Sensedia_vertical_color.png"
           }
         />
-        <InputDefault type={'text'} placeholder={"Digite o seu email..."} onChange={(e) => props.email(e.target.value)} />
-        <InputDefault type={'password'} placeholder={"Digite a sua senha..."} onChange={(e) => props.password(e.target.value)} />
+        <InputDefault
+          type={"text"}
+          placeholder={"Digite o seu email..."}
+          action={(e) => props.email(e)}
+        />
+        <InputDefault
+          type={"password"}
+          placeholder={"Digite a sua senha..."}
+          action={(e) => props.password(e)}
+        />
 
-        {props.error&&(
-          <ErrorMessage>Email ou senha inválidos.</ErrorMessage>
-        )}
-        
-        {props.required&&(
-          <ErrorMessage>Preencha os campos email e senha.</ErrorMessage>
+        {props.error && (
+          <ErrorMessage value={"Oops, Email ou senha inválidos."} />
         )}
 
-        <ButtonDefault onClick={() => props.action()}>Acessar</ButtonDefault>
+        {props.required && (
+          <ErrorMessage value={"Preencha os campos email e senha."} />
+        )}
+
+        <ButtonDefault action={() => props.action()} value={"Acessar"} />
       </CardLogin>
     </PageContent>
   );
@@ -43,33 +56,4 @@ const CardLogin = styled.div`
   align-items: center;
   flex-direction: column;
   width: 300px;
-`;
-
-const Logo = styled.img`
-  width: 200px;
-  margin-bottom: 10px;
-`;
-
-const InputDefault = styled.input`
-  width: 100%;
-  font-size: 14px;
-  margin: 5px 0px;
-  padding: 10px;
-`;
-
-const ButtonDefault = styled.button`
-  padding: 0px 20px;
-  margin: 15px 0px;
-  height: 35px;
-  width: 120px;
-  border-radius: 0px;
-  box-shadow: initial;
-  border: initial;
-  background-color: #4a2564;
-  color: #fff;
-`;
-
-const ErrorMessage = styled.div`
-  font-size: 12px;
-  color: red;
 `;

@@ -1,16 +1,30 @@
-import React from 'react';
-import Dashboard from '../../pages/dashboard/index';
+import React from "react";
+import Dashboard from "../../pages/dashboard/index";
 import { getUser, logout } from "../../services/auth";
 
 export default (props) => {
-    const logoutUser = () => {
-        logout();
-        props.history.push("/login");
-    }
+  const logoutUser = () => {
+    logout();
+    props.history.push("/login");
+  };
 
-    return <Dashboard 
-        user={getUser()} 
-        github={'https://google.com.br'} 
-        languages={'Praesent id tempus lorem, vitae hendrerit mauris. Aliquam pulvinar mauris vitae velit porttitor placerat lacinia non diam. Cras nec sapien id nunc luctus interdum. Mauris non maximus turpis. Phasellus pretium, neque non semper aliquam, odio dui fringilla quam, eu dictum neque nibh eu erat. Nam posuere mauris et laoreet lobortis. Nam finibus urna quis turpis convallis, ac eleifend elit vestibulum. Etiam at turpis in felis interdum condimentum sed nec mi. In et augue nulla. Sed vestibulum turpis sit amet justo dictum, volutpat maximus dui lacinia. Proin pulvinar aliquam neque sed elementum. Nullam cursus, sapien sit amet molestie interdum, ligula nunc auctor dui, eget consequat mi lectus et sem. Sed id nisl ut eros scelerisque dignissim quis vitae nibh. Pellentesque vel lectus scelerisque arcu accumsan gravida. Aenean sapien libero, dictum non condimentum ac, porta placerat odio. Praesent a interdum orci, ac pellentesque nunc.'} 
-        logout={() => logoutUser()} />
-}
+  return (
+    <Dashboard
+      user={getUser()}
+      github={"https://github.com/tiago1994/monorepo-2fa"}
+      monorepo={
+        "Criei a aplicação utilizando o conceito de arquitetura monorepo, tinha feito nessa linha primeiramente pela facilidade de compartilhar itens, tinha pensando em fazer com typescript assim compartilharia as interfaces, porem com a correria acabei fazendo com js sem types mesmo."
+      }
+      backend={
+        "Neste projeto utilizei para a parte de backend o framework express, assim facilitando bastante o controle de rotas, middlewares e status. Lá criei uma arquitetura de controllers consumindo a carga de dados de um user.json, poderia ter adicionado uma camada de service/repository assim deixando mais desacoplado, porem como tinhamos poucos endpoints acabei deixando essa estrutura mais simples."
+      }
+      frontend={
+        "No frontend utilizei react como core, utilizei um framework que gosto para a crição de componentes styledcomponent, do resto foi normal o projeto, acabei dividindo as pastas em containers e pages, assim tentando deixar todas as pages/components sem responsabilidades, deixando somente o container encarregado de chamar os servies e etc."
+      }
+      message={
+        "Eu poderia ter feito alguns pontos a +, tais como testes, utilização de banco de dados, register e etc, porem com o pouco tempo para realizar o teste acabei seguindo a linha mais simples."
+      }
+      logout={() => logoutUser()}
+    />
+  );
+};

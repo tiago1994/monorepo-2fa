@@ -21,16 +21,19 @@ export default (props) => {
       password: data.password,
     };
 
-    const loginResponse = await login(user);
-    if (loginResponse.data.email) {
+    try {
+      const loginResponse = await login(user);
       setData({ ...data, error: false, required: false });
-      localStorage.setItem("USER", JSON.stringify({
-        email: loginResponse.data.email,
-        name: loginResponse.data.name
-      }));
-      localStorage.setItem('TOKEN_KEY', loginResponse.data.jwt)
+      localStorage.setItem(
+        "USER",
+        JSON.stringify({
+          email: loginResponse.data.email,
+          name: loginResponse.data.name,
+        })
+      );
+      localStorage.setItem("TOKEN_KEY", loginResponse.data.jwt);
       props.history.push("/2fa");
-    } else {
+    } catch (error) {
       setData({ ...data, error: true, required: false });
     }
   };
