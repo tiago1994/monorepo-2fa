@@ -1,0 +1,8 @@
+{
+  "name": "Tiago Matos",
+  "email": "tiagovmatos@gmail.com",
+  "password": "teste123",
+  "secret": "NBNMADTAE4QIZXPN5YSA44QC3TRX725Y",
+  "uri": "otpauth://totp/Monorepo-2fa%3Atiagovmatos%40gmail.com?secret=NBNMADTAE4QIZXPN5YSA44QC3TRX725Y&issuer=Monorepo-2fa",
+  "qr": "https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=otpauth://totp/Monorepo-2fa%3Atiagovmatos%40gmail.com%3Fsecret=NBNMADTAE4QIZXPN5YSA44QC3TRX725Y%26issuer=Monorepo-2fa"
+}

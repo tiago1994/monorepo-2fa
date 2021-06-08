@@ -1,0 +1,11 @@
+{
+  "name": "monorepo-2fa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tiago Matos <tiagovolta@gmail.com>",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "license": "MIT"
+}
