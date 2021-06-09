@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "./auth";
 
 const api = axios.create({
-  baseURL: "https://monorepo-2fa.herokuapp.com/"
+  baseURL: "http://localhost:8000/"
 });
 
 api.interceptors.request.use(async config => {
