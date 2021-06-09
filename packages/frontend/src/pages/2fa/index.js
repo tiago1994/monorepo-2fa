@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import resources from "../../commons/resources";
 import ButtonDefault from "../../components/buttonDefault";
 import ErrorMessage from "../../components/errorMessage";
 import InputDefault from "../../components/inputDefault";
 
-export default (props) => {
+const TwoFactorPage = (props) => {
   return (
     <PageContent>
       <CardLogin>
@@ -15,19 +16,28 @@ export default (props) => {
         />
         <InputDefault
           type={"text"}
-          placeholder={"Digite o código..."}
+          placeholder={resources.twoFactor.placeHolder}
           action={(e) => props.code(e)}
         />
 
-        {props.error && <ErrorMessage value={"Código inválido."} />}
+        {props.error && (
+          <ErrorMessage value={resources.twoFactor.invalidCode} />
+        )}
 
-        {props.required && <ErrorMessage value={"Preencha o código."} />}
+        {props.required && (
+          <ErrorMessage value={resources.twoFactor.fillCode} />
+        )}
 
-        <ButtonDefault action={() => props.action()} value={"Validar"} />
+        <ButtonDefault
+          action={() => props.action()}
+          value={resources.twoFactor.submitButton}
+        />
       </CardLogin>
     </PageContent>
   );
 };
+
+export default TwoFactorPage;
 
 const PageContent = styled.div`
   background-image: linear-gradient(to right top, #4a2564, #d45215);

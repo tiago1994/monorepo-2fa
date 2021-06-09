@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default (props) => (
+const LogoDefault = (props) => (
   <Logo
     width={props.width}
     src={
@@ -10,6 +10,8 @@ export default (props) => (
   />
 );
 
+export default LogoDefault;
+
 const Logo = styled.img`
-  width: ${props => props.width || "120px"};
+  width: ${(props) => props.width || "120px"};
 `;

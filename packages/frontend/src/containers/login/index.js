@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "../../pages/login/index";
 import { login } from "../../services/user";
 
-export default (props) => {
+const LoginContainer = (props) => {
   const [data, setData] = useState({
     email: null,
     password: null,
@@ -48,3 +48,5 @@ export default (props) => {
     />
   );
 };
+
+export default LoginContainer;

@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-export default (props) => (
+const Button = (props) => (
     <ButtonDefault onClick={() => props.action()}>{props.value}</ButtonDefault>
 );
+
+export default Button;
 
 const ButtonDefault = styled.button`
   padding: 0px 20px;

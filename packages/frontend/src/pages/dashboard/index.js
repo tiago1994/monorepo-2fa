@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import resources from "../../commons/resources";
 import Header from "../../components/header";
 
-export default (props) => {
+const DashboardPage = (props) => {
   return (
     <PageContent>
       <Header logout={() => props.logout()} />
       <CardPage>
         <PageTitle>
-          <h3>Olá, {props.user.name}</h3>
+          <Title>{resources.dashboard.hello} {props.user.name}</Title>
         </PageTitle>
         <LineDivision />
         <RowDetails>
           <ColumnDetailsLanguage>
-            <p>{props.monorepo}</p>
-            <p>{props.backend}</p>
-            <p>{props.frontend}</p>
-            <p>{props.message}</p>
+            <TextDetails>{props.monorepo}</TextDetails>
+            <TextDetails>{props.backend}</TextDetails>
+            <TextDetails>{props.frontend}</TextDetails>
+            <TextDetails>{props.message}</TextDetails>
           </ColumnDetailsLanguage>
 
           <ColumnDetailsGit href={props.github} target="_blank">
@@ -32,6 +33,8 @@ export default (props) => {
   );
 };
 
+export default DashboardPage;
+
 const PageContent = styled.div`
   background-image: linear-gradient(to right top, #4a2564, #d45215);
   height: 100%;
@@ -44,6 +47,8 @@ const CardPage = styled.div`
 `;
 
 const PageTitle = styled.div``;
+const Title = styled.h3``;
+const TextDetails = styled.p``;
 
 const RowDetails = styled.div`
   display: flex;

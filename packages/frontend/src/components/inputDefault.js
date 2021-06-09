@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-export default (props) => (
+const Input = (props) => (
   <InputDefault
     type={props.type}
     placeholder={props.placeholder}
     onChange={(e) => props.action(e.target.value)}
   />
 );
+
+export default Input;
 
 const InputDefault = styled.input`
   width: 100%;

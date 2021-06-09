@@ -23,18 +23,18 @@ module.exports = () => {
   controller.twoFactor = (req, res) => {
     const data = req.body;
     const checkTwoFactory = twofactorNode.verifyToken(userDB.secret, data.code);
-    if (checkTwoFactory && checkTwoFactory.delta == 0) {
-      res.status(200).json({
-        name: userDB.name,
-        email: userDB.email,
-        jwt: jwtUtils.generateAccessToken({
-          email: userDB.email,
-          twoFactor: true,
-        }),
-      });
-    } else {
+    if (!checkTwoFactory || checkTwoFactory.delta != 0) {
       res.status(401).json({ error: "2fa fail." });
     }
+
+    res.status(200).json({
+      name: userDB.name,
+      email: userDB.email,
+      jwt: jwtUtils.generateAccessToken({
+        email: userDB.email,
+        twoFactor: true,
+      }),
+    });
   };
 
   return controller;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Logo from "./logo";
 
-export default (props) => (
+const HeaderComponent = (props) => (
   <Header>
     <Column>
       <Logo
@@ -20,6 +20,8 @@ export default (props) => (
     </ColumnLogout>
   </Header>
 );
+
+export default HeaderComponent;
 
 const LogoutIcon = styled.img`
   width: 26px;

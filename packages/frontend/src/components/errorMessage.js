@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-export default (props) => <ErrorMessage>{props.value}</ErrorMessage>;
+const Error = (props) => <ErrorMessage>{props.value}</ErrorMessage>;
+
+export default Error;
 
 const ErrorMessage = styled.div`
   font-size: 12px;
